@@ -12,11 +12,12 @@
 	<groupId>za.co.anylytical.showcase</groupId>
 	<artifactId>docker-database-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>docker-database-test</name>
+	<name>Docker Database Test [POM]</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<test.containers.version>1.14.3</test.containers.version>
 	</properties>
 
 	<dependencies>
@@ -40,6 +41,18 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<!--	TO ADD	-->
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${test.containers.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

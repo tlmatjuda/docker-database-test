@@ -1,0 +1,21 @@
+
+spring:
+
+  # PostgreSQL
+  datasource:
+
+    # url: jdbc:postgresql://localhost:5432/this-test-database
+    url: jdbc:tc:postgresql:13:///test
+    data-username: test
+    data-password: test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+    # Default connection pool
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+
+  # drop n create table again, good for testing, comment this in production
+  jpa:
+    hibernate:
+      ddl-auto: create

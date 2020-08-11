@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DockerDatabaseTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DockerDatabaseTestApplication.class, args);
+		SpringApplication.run( DockerDatabaseTestApplication.class, args);
 	}
 
 }
