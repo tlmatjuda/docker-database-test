@@ -13,6 +13,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author: Thabo Lebogang Matjuda
+ * @since: 2020-08-11
+ * @email: <a href="mailto:thabo@anylytical.co.za">Anylytical Technologies</a>
+ * <a href="mailto:tl.matjuda@gmail.com">Personal GMail</a>
+ */
+
 @SpringBootTest
 @ActiveProfiles("integrate-the-tests")
 public class BookDataAccessIT {
