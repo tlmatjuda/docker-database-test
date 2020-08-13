@@ -1,9 +1,6 @@
 
 spring:
-
-  # PostgreSQL
   datasource:
-
     # url: jdbc:postgresql://localhost:5432/this-test-database
     url: jdbc:tc:postgresql:13:///test
     data-username: test

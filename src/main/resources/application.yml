@@ -1,1 +1,6 @@
 
+spring:
+  main:
+
+    # Disable banner
+    banner-mode: off

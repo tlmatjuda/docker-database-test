@@ -9,14 +9,16 @@ import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.containers.PostgreSQLContainer;
 import za.co.anylytical.showcase.dockerdatabasetest.model.Book;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ActiveProfiles("integrate-the-tests")
-public class BookDAOTest {
+public class BookDataAccessIT {
 
     @Autowired
-    private BookDAO bookDAO;
+    private BookDataAccess bookDataAccess;
 
     private Book lordOfTheRings_001 = new Book();
 
@@ -25,14 +27,24 @@ public class BookDAOTest {
 
     @BeforeEach
     public void setUp() {
-        assertNotNull( bookDAO);
+        assertNotNull(bookDataAccess);
         lordOfTheRings_001.setTitle("Lord Of The Rings, Fellowship Of The Ring");
     }
 
     @Test
-    void assert_That_We_Can_Save_A_Book() {
-        Book saved_lordOfTheRings_001 = bookDAO.saveAndFlush(lordOfTheRings_001);
+    public void assert_That_We_Can_Save_A_Book() {
+        Book saved_lordOfTheRings_001 = bookDataAccess.saveAndFlush( lordOfTheRings_001);
         assertNotNull( saved_lordOfTheRings_001);
         assertNotNull( saved_lordOfTheRings_001.getId());
+        assertEquals( saved_lordOfTheRings_001.getTitle(), lordOfTheRings_001.getTitle());
+    }
+
+    @Test
+    public void assert_That_We_Can_Find_A_Book_ById() {
+        Book saved_lordOfTheRings_001 = bookDataAccess.saveAndFlush( lordOfTheRings_001);
+        assertNotNull( saved_lordOfTheRings_001.getId());
+
+        Optional<Book> foundBookById = bookDataAccess.findById(saved_lordOfTheRings_001.getId());
+        assertTrue( foundBookById.isPresent());
     }
 }

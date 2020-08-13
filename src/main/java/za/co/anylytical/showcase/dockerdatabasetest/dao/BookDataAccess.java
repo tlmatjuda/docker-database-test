@@ -12,4 +12,4 @@ import za.co.anylytical.showcase.dockerdatabasetest.model.Book;
  */
 
 @Repository
-public interface BookDAO extends JpaRepository<Book, Long> {}
+public interface BookDataAccess extends JpaRepository<Book, Long> {}
